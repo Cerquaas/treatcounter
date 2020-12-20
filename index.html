@@ -1,0 +1,35 @@
+<title>Treat Counter</title>
+<style>
+	body {
+		font-family: sans-serif;
+	}
+</style>
+<script>
+	var total = 0;
+	var catched = 0;
+	function succcatch() {
+		total++;
+		catched++;
+		console.log("CAUGHT")
+	}
+	function failcatch() {
+		total++;
+		console.log("FAIL")
+	}
+	function getresults() {
+		var res = (Math.floor((catched / total) * 100))
+		document.getElementById("results").innerHTML = res + "%";
+		console.log("RESPRINT")
+	}
+</script>
+<h1>Treat Counter!</h1>
+<button style="width:100px;height:100px;" onclick="succcatch()">
+  Catch!
+</button>
+<button style="width:100px;height:100px;" onclick="failcatch()">
+  No Catch!
+</button>
+<button style="width:100px;height:100px;" onclick="getresults()">
+  Results!
+</button><br><br>
+<div id="results">Results will appear here when you click Results!</div>
