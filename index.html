@@ -21,6 +21,20 @@
 		document.getElementById("results").innerHTML = res + "%";
 		console.log("RESPRINT")
 	}
+	function save() {
+		localStorage.setItem('sessioncaught', catched);
+		localStorage.setItem('sessionthrew', total);
+	}
+	function savenew() {
+		localStorage.setItem('sessioncaught', catched);
+		localStorage.setItem('sessionthrew', total);
+		total = 0;
+		catched = 0;
+	}
+	function load() {
+		total = localStorage.getItem('sessionthrew');
+		catched = localStorage.getItem('sessioncaught');
+	}
 </script>
 <h1>Treat Counter!</h1>
 <button style="width:100px;height:100px;" onclick="succcatch()">
@@ -31,5 +45,17 @@
 </button>
 <button style="width:100px;height:100px;" onclick="getresults()">
   Results!
+</button>
+<button style="width:100px;height:100px;" onclick="save()">
+  Save Session
+</button>
+<button style="width:100px;height:100px;" onclick="savenew()">
+  Save & New
+</button>
+<button style="width:100px;height:100px;" onclick="load()">
+  Load Last
+</button>
+<button style="width:100px;height:100px;position:fixed;" onclick="compare()">
+  Compare Last Session vs This Session
 </button><br><br>
-<div id="results">Results will appear here when you click Results!</div>
+<div id="results"></div>
